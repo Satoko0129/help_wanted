@@ -36,4 +36,4 @@
 - 使用しない場合は、使用素材の項目をREADMEから削除してください。
 折りたたむ
 
-https://docs.google.com/spreadsheets/d/1Y5WhlhSFBihabhutW7Ko79YebY6EJXwn4sed8hSPbnM/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1Y5WhlhSFBihabhutW7Ko79YebY6EJXwn4sed8hSPbnM/edit?usp=sharing# help_wanted
