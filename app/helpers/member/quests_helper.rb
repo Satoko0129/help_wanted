@@ -1,0 +1,2 @@
+module Member::QuestsHelper
+end

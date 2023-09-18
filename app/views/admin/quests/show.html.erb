@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h3 class="mt-5 text-container">クエスト詳細</h3>
+  <div class="row align-items-start">
+
+    <div class="col-lg">
+      <table class="table">
+        <tr>
+          <th>クエスト名</th>
+          <td><%= @quest.name %></td>
+        </tr>
+
+        <tr>
+          <th>クエストLevel</th>
+          <td><%= @quest.level %></td>
+        </tr>
+
+        <tr>
+          <th>クエスト報酬</th>
+            <td><%= @item.price.round.to_s(:delimited) %>ゼニー</td>
+        </tr>
+
+        <tr>
+          <th>クエスト説明</th>
+          <td><%= @quest.introduction %></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+    <p><%= link_to '編集する', edit_admin_quest_path(@quest.id), class: 'btn btn-outline-secondary' %></p>
+</div>

@@ -1,4 +1,4 @@
-# <!--Help wanted-->
+# Help wanted
 ​
 ## サイト概要
 ### サイトテーマ

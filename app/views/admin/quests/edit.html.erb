@@ -1,0 +1,68 @@
+<div class="container">
+  <h3 class="text-center my-5">Edit quest content</h3>
+  <div class="row">
+    <div class="col-8 offset-2 mb-5">
+      <%= form_with model: @quest, url: admin_quest_path, local: true do |f| %>
+      <table>
+        
+        <tr>
+          <div class="form-group">
+            <%= f.label :"Quest name", class: "form_label" %>
+            <%= f.text_field :name, placeholder: "クエスト名", class: "form-control mb-3" %>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <%= f.radio_button :star, Level.stars.key(0) %>
+            <%= f.label :star, Level.star_i18n[:easy], value: Level.stars.key(0) %>
+
+            <%= f.radio_button :star, Level.stars.key(1) %></th>
+            <%= f.label :star, Level.star_i18n[:normal], value: Level.stars.key(1) %>
+
+            <%= f.radio_button :star, Level.stars.key(2) %>
+            <%= f.label :star, Level.star_i18n[:hard], value: Level.stars.key(2) %>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <%= f.label :"Quest reward", class: "form_label" %>
+            <%= f.text_field :price, size: "15" %>円　<!--size: "15"は15文字-->
+          </div>
+        </tr>
+        
+        <tr>
+          <div class="form-group">
+            <%= f.label :"Time required", class: "form-label" %>
+            <%= f.text_field :time, placeholder: "30" %>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <%= f.label :"Explanatory text", class: "form-label" %>
+            <%= f.text_area :introduction, size: "50x5", placeholder: "ここに説明文を記述します", class: "form-control form-control-lg", type: "text" %>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <%= f.label :"販売ステータス", class: "form_label my-3" %> <!--my-3 上下のマージンを1rem ※1remは16px-->
+            <%= f.radio_button :is_active, true, checked: true %>
+              <%= f.label :is_active, "販売中", class: "form_label" %>
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :is_active, "販売停止中", class: "form_label" %>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="from-action">
+            <%= f.submit "変更を保存", class: "btn btn-success" %>
+          </div>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

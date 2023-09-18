@@ -1,0 +1,65 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col md-3">
+      <h3 class="header-title">Enter new quest</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @quest, url: admin_quests_path, local: true do |f| %>
+      <table>
+
+        <tr>
+          <div class="form-group">
+           <th><%= f.label :"Quest name" %></th>
+           <th><%= f.text_field :name, placeholder: "クエスト名" %></th>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="from-group">
+            <th><%= f.radio_button :star, Level.stars.key(0) %></th>
+            <th><%= f.label :star, Level.star_i18n[:easy], value: Level.stars.key(0) %></th>
+
+            <th><%= f.radio_button :star, Level.stars.key(1) %></th>
+            <th><%= f.label :star, Level.star_i18n[:normal], value: Level.stars.key(1) %></th>
+
+            <th><%= f.radio_button :star, Level.stars.key(2) %></th>
+            <th><%= f.label :star, Level.star_i18n[:hard], value: Level.stars.key(2) %></th>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form_group">
+            <th><%= f.label :"Quest reward" %></th>
+            <th><%= f.text_field :price, placeholder: "100" %></th>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form_group">
+            <th><%= f.label :"Time required" %></th>
+            <th><%= f.text_field :time, placeholder: "30" %></th>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form_group">
+            <th><%= f.label :"Explanatory text" %></th>
+            <th><%= f.text_area :introduction, size: "50x5", placeholder: "ここに説明文を記述します" %></th>
+          </div>
+        </tr>
+
+        <tr>
+            <th><%= f.submit "クエストを公開", :name => 'post', class: 'mr-5 btn btn-outline-primary' %>
+              
+                <%= f.submit "下書きに保存", :name => 'draft', class: 'mr-5 btn btn-sm btn-outline-secondary' %></th>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+
+</div>

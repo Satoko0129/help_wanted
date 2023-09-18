@@ -1,0 +1,14 @@
+ja:
+  enums:
+     quest:
+          star:
+            easy: 'やさしい'
+            normal: 'ふつう'
+            hard: 'むずかしい'
+
+
+errors:
+     format: "%{attribute}%{message}"
+     messages:
+       accepted: を受諾してください
+       blank: を入力してください
