@@ -9,6 +9,13 @@
     <div class="col">
       <%= form_with model: @quest, url: admin_quests_path, local: true do |f| %>
       <table>
+        
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :"クエストイメージ画像" %></th>
+            <th><%= f.file_field :quest_image, placeholder: "quest_image", accept: "image/*" %></th>
+          </div>
+        </tr>
 
         <tr>
           <div class="form-group">
@@ -19,14 +26,14 @@
 
         <tr>
           <div class="from-group">
-            <th><%= f.radio_button :star, Level.stars.key(0) %></th>
-            <th><%= f.label :star, Level.star_i18n[:easy], value: Level.stars.key(0) %></th>
+            <th><%= f.radio_button :level, Quest.levels.key(0) %></th>
+            <th><%= f.label :level, Quest.level_i18n[:easy], value: Quest.levels.key(0) %></th>
 
-            <th><%= f.radio_button :star, Level.stars.key(1) %></th>
-            <th><%= f.label :star, Level.star_i18n[:normal], value: Level.stars.key(1) %></th>
+            <th><%= f.radio_button :level, Quest.levels.key(1) %></th>
+            <th><%= f.label :level, Quest.level_i18n[:normal], value: Quest.levels.key(1) %></th>
 
-            <th><%= f.radio_button :star, Level.stars.key(2) %></th>
-            <th><%= f.label :star, Level.star_i18n[:hard], value: Level.stars.key(2) %></th>
+            <th><%= f.radio_button :level, Quest.levels.key(2) %></th>
+            <th><%= f.label :star, Quest.level_i18n[:hard], value: Quest.levels.key(2) %></th>
           </div>
         </tr>
 
@@ -52,7 +59,7 @@
         </tr>
 
         <tr>
-            <th><%= f.submit "クエストを公開", :name => 'post', class: 'mr-5 btn btn-outline-primary' %>
+            <th><%= f.submit "クエストを公開", :name => 'post', class: 'mr-5 btn btn-sm btn-warning text-white' %>
               
                 <%= f.submit "下書きに保存", :name => 'draft', class: 'mr-5 btn btn-sm btn-outline-secondary' %></th>
         </tr>

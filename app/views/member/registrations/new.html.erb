@@ -1,32 +1,31 @@
 <div class="cotainer my-5">
   <div class="row">
     <div class=col>
-      <div class="col-6 offset-3">
+      <div class="col-6 offset-3 mt-5">
         <h3>新しく登録する</h3>
-          <h6 class="my-3">メンバー登録がまだの人はここから登録</h6>
 
-        <%= form_with model: @member, url: new_member_registration_path, local: true do |f| %>
+        <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
 
-        <div class="field my-2">
+        <div class="field my-3">
           <%= f.label :"ニックネームをきめてね", class: "form-label mt-3" %><br>
-          <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email", class: "form-control" %>
+          <%= f.text_field :nickname, autofocus: true, placeholder: "たろう", autocomplete: "nickname", class: "form-control" %>
           <!--autocomplete： "カラム名"とは自動で入力補助をしてくれる機能-->
         </div>
 
         <div class="field my-2">
           <%= f.label :"生年月日を登録してね", class: "form-label mt-3" %><br>
-          <%= f.date_select :birthday, prefix:'birthday', prompt:"選択してください", use_month_numbers:true, start_year:Time.now.year, end_year:2000, date_separator:'%s'),'年','月')+'日' %>
+          <%= raw sprintf(f.date_select( :birthday, prefix:'birthday', prompt:"選択してください", use_month_numbers:true, start_year:Time.now.year, end_year:2000, date_separator:'%s'),'年','月')+'日' %>
         </div>
 
-        <div class="actions my-2 text-center">
+        <div class="actions mt-5 text-center">
           <%= f.submit "登録する", class: "btn btn-outline-secondary" %>
         </div>
 
         <% end %>
 
-        <div>
+        <div class="mt-5">
           <h6 class="text-center">メンバー登録がすんでいる人は</h6>
-          <p class="text-center"><%= link_to "ここ", member_session_path %>からログインしてね！</p>
+          <p class="text-center"><%= link_to "こちら", member_session_path %>からログインしてね！</p>
         </div>
 
       </div>

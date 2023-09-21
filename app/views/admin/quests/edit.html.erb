@@ -4,7 +4,7 @@
     <div class="col-8 offset-2 mb-5">
       <%= form_with model: @quest, url: admin_quest_path, local: true do |f| %>
       <table>
-        
+
         <tr>
           <div class="form-group">
             <%= f.label :"Quest name", class: "form_label" %>
@@ -14,24 +14,24 @@
 
         <tr>
           <div class="form-group">
-            <%= f.radio_button :star, Level.stars.key(0) %>
-            <%= f.label :star, Level.star_i18n[:easy], value: Level.stars.key(0) %>
+           <%= f.radio_button :level, Quest.levels.key(0) %>
+           <%= f.label :level, Quest.level_i18n[:easy], value: Quest.levels.key(0) %>
 
-            <%= f.radio_button :star, Level.stars.key(1) %></th>
-            <%= f.label :star, Level.star_i18n[:normal], value: Level.stars.key(1) %>
+           <%= f.radio_button :level, Quest.levels.key(1) %>
+           <%= f.label :level, Quest.level_i18n[:normal], value: Quest.levels.key(1) %>
 
-            <%= f.radio_button :star, Level.stars.key(2) %>
-            <%= f.label :star, Level.star_i18n[:hard], value: Level.stars.key(2) %>
+           <%= f.radio_button :level, Quest.levels.key(2) %>
+           <%= f.label :star, Quest.level_i18n[:hard], value: Quest.levels.key(2) %>
           </div>
         </tr>
 
         <tr>
           <div class="form-group">
             <%= f.label :"Quest reward", class: "form_label" %>
-            <%= f.text_field :price, size: "15" %>円　<!--size: "15"は15文字-->
+            <%= f.text_field :price %>円
           </div>
         </tr>
-        
+
         <tr>
           <div class="form-group">
             <%= f.label :"Time required", class: "form-label" %>
@@ -47,19 +47,20 @@
         </tr>
 
         <tr>
-          <div class="form-group">
-            <%= f.label :"販売ステータス", class: "form_label my-3" %> <!--my-3 上下のマージンを1rem ※1remは16px-->
-            <%= f.radio_button :is_active, true, checked: true %>
-              <%= f.label :is_active, "販売中", class: "form_label" %>
-              <%= f.radio_button :is_active, false %>
-              <%= f.label :is_active, "販売停止中", class: "form_label" %>
+          <div class="row mt-4">
+            <div class="form-inline mx-auto">
+              <% if @post_recipe.is_draft == true %>
+                <%= f.submit "クエストを公開", :name => 'publicize_draft', class:'mr-5 btn btn-sm btn-warning' %>
+                <%= f.submit "下書きを更新", :name => 'update_draft', class:'mr-5 btn btn-sm btn-outline-secondary' %>
+              <% else %>
+                <%= f.submit "クエストを更新", :name => 'update_post', class:'btn btn-sm btn-warning text-light' %>
+              <% end %>
+            </div>
           </div>
-        </tr>
-
-        <tr>
-          <div class="from-action">
-            <%= f.submit "変更を保存", class: "btn btn-success" %>
-          </div>
+            <div class="mt-4 pb-3 text-center">
+              <u><%= link_to "クエストを削除", "/post_recipes/#{@post_recipe.id}", method: :delete, data: {confirm: "このクエストを削除しますか？"}, class:'text-danger' %></u>
+            </div>
+            <% end %>
         </tr>
       <% end %>
       </table>

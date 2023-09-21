@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     added_attrs = [ :nickname, :birthday ]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
   end
+
+  def email_required?
+    false
+  end
 end

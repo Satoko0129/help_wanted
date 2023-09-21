@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :admin, controllers: {
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
 namespace :admin do
-  root to: 'homes#top'
-  resources :quests
+  root to: 'quests#index'
+  resources :quests, only: [:show, :edit, :create, :edit, :update, :destroy]
   resources :members, only: [:index, :show, :edit, :update]
   patch 'admin/exchange_requests/:id' => 'update#exchange_request'
   resources :reviews, only: [:new, :create]
@@ -14,13 +14,13 @@ end
 
 
 
-  devise_for :members, controllers: {
+  devise_for :members,skip: [:passwords], controllers: {
   registrations: "member/registrations",
   sessions: 'member/sessions'
 }
 
 scope module: 'member' do
-  root to: 'homes#top'
+  root to: 'quests#index'
   resources :quests, only: [:show, :update]
   get 'quests/receive' => 'quests#receive'
   resources :members, only: [:new, :create, :edit, :show, :update]

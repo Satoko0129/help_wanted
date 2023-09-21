@@ -1,13 +1,12 @@
 class Quest < ApplicationRecord
    with_options presence: true, on: :publicize do
-    validates :price
+    validates :name
     validates :level
-    validates :title
-    validates :introduction
+    validates :price
     validates :introduction
   end
-  validates :title, length: { maximum: 14 }, on: :publicize
+  validates :name, length: { maximum: 14 }, on: :publicize
   validates :introduction, length: { maximum: 80 }, on: :publicize
 
-  enum star: { easy: 0, normal: 1, hard: 2 }
+  enum level: { easy: 0, normal: 1, hard: 2 }
 end
