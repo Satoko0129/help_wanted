@@ -8,13 +8,17 @@
         <%= form_with model: @member, url: new_member_session_path, local: true do |f| %>
 
         <div class="field my-2">
-          <%= f.label :"ニックネームを入力してね", class: "form-label mt-3" %><br>
+          <%= f.label :"ニックネーム", class: "form-label mt-3" %><br>
           <%= f.text_field :nickname, autofocus: true, placeholder: "たろう", autocomplete: "nickname", class: "form-control" %>
           <!--autocomplete： "カラム名"とは自動で入力補助をしてくれる機能-->
         </div>
 
+        <div class="field mt-2 mb-5">
+          <%= f.label :"たんじょうび", class: "form-label mt-3" %><br>
+          <%= raw sprintf(f.date_select( :birthday, prefix:'member', prompt:"選択してください", use_month_numbers:true, start_year:Time.now.year, end_year:2000, date_separator:'%s'),'年','月')+'日' %>
+        </div>
 
-        <div class="actions my-2 text-center">
+        <div class="actions my-3 text-center">
           <%= f.submit "ログイン", class: "btn btn-outline-secondary" %>
         </div>
 

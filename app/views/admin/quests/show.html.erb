@@ -3,27 +3,30 @@
   <div class="row align-items-start">
 
     <div class="col-lg">
+      <%= image_tag @quest.get_image(300,400) %>
+    </div>
+    <div class="col-lg">
       <table class="table">
         <tr>
-          <th>クエスト名</th>
+          <th>Quest name</th>
           <td><%= @quest.name %></td>
         </tr>
-
         <tr>
-          <th>クエストLevel</th>
-          <td><%= @quest.level %></td>
+          <th>Quest level</th>
+          <td><%= @quest.level_i18n %></td>
         </tr>
-
         <tr>
-          <th>クエスト報酬</th>
-            <td><%= @item.price.round.to_s(:delimited) %>ゼニー</td>
+          <th>Quest reward</th>
+            <td><%= @quest.price.to_i.round.to_s(:delimited) %>Ｇ</td>
         </tr>
-
         <tr>
-          <th>クエスト説明</th>
+          <th>Time required</th>
+          <td><%= @quest.time %>分</td>
+        </tr>
+        <tr>
+          <th>Explanatory text</th>
           <td><%= @quest.introduction %></td>
         </tr>
-
       </table>
     </div>
   </div>

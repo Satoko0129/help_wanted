@@ -5,37 +5,35 @@
     </div>
 
     <div class="col-sm-2 px-sm-0 text-right mt-5">
-      <%= link_to "New", new_admin_quest_path, class: "btn btn btn-outline-secondary" do %>
-      <% end %>
+      <%= link_to "New", new_admin_quest_path, class: "btn btn btn-outline-secondary" %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-sm-10 offset-1">
-   <table class="table mb-5">
-     <thead>
-      <tr>
-        <th>クエストID</strong></th>
-        <th>クエスト名</th>
-        <th>level</th>
-        <th>クエスト報酬</th>
-        <th>ステータス</th>
-      </tr>
-     </thead>
-
-     <tbody>
-        <% @quests.each do |quest| %>
-         <tr>
-           <td><%= quest.id %></td>
-           <td><%= link_to quest.name, admin_quest_path(quest.id) %></td>
-           <td><%= link_to quest.level, admin_quest_path(quest.id) %></td>
-           <td><%= quest.price.round.to_s(:delimited, delimiter: ',') %></td>
-           <td><%= @quest.status_i18n %></td>
-         </tr>
-
-        <% end %>
-     </tbody>
-   </table>
-   </div>
+      <table class="table mb-5">
+        <thead>
+          <tr>
+            <th>クエストID</strong></th>
+            <th>クエスト名</th>
+            <th>level</th>
+            <th>クエスト報酬</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @quests.each do |quest| %>
+            <tr>
+              <td><%= quest.id %></td>
+              <td><%= link_to quest.name, admin_quest_path(quest.id) %></td>
+              <td><%= link_to quest.level_i18n, admin_quest_path(quest.id) %></td>
+              <td><%= quest.price.to_i.round.to_s(:delimited, delimiter: ',') %></td>
+              <td><%= quest.status_i18n %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
+  <%= paginate @quests, theme: 'bootstrap-5' %>
 </div>

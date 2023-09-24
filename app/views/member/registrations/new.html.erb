@@ -13,8 +13,8 @@
         </div>
 
         <div class="field my-2">
-          <%= f.label :"生年月日を登録してね", class: "form-label mt-3" %><br>
-          <%= raw sprintf(f.date_select( :birthday, prefix:'birthday', prompt:"選択してください", use_month_numbers:true, start_year:Time.now.year, end_year:2000, date_separator:'%s'),'年','月')+'日' %>
+          <%= f.label :"たんじょうびをとうろくしてね", class: "form-label mt-3" %><br>
+          <%= raw sprintf(f.date_select( :birthday, prefix:'member', prompt:"えらんでください", use_month_numbers:true, start_year:Time.now.year, end_year:2000, date_separator:'%s'),'年','月')+'日' %>
         </div>
 
         <div class="actions mt-5 text-center">

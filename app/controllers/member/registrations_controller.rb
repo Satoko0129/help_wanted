@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Member::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+  #before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -10,9 +10,14 @@ class Member::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
+  def create
+    member = Member.find_or_create_by!(nickname: params[:member][:nickname]) do |member|
+      member.password = SecureRandom.urlsafe_base64
+      member.birthday = "#{params[:member]['birthday(1i)']}/#{params[:member]['birthday(2i)']}/#{params[:member]['birthday(3i)']}"
+    end
+    sign_in member
   #   super
-  # end
+  end
 
   # GET /resource/edit
   # def edit
@@ -41,9 +46,14 @@ class Member::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  #def configure_sign_up_params
+  #  devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+  #end
+
+#  def configure_permitted_parameters
+#    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :birthday])
+#  end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

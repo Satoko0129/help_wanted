@@ -22,8 +22,9 @@ class Admin::QuestsController < ApplicationController
       end
     # 下書きボタンを押下した場合
     else
-      if @quest.update(is_draft: true)
-        redirect_to quest_path, notice: "クエストを下書き保存しました！"
+      @quest.is_draft = true
+      if @quest.save
+        redirect_to admin_quest_path(@quest), notice: "クエストを下書き保存しました！"
       else
         render :new, alert: "登録できませんでした。お手数ですが、入力内容をご確認のうえ再度お試しください"
       end
@@ -43,7 +44,7 @@ class Admin::QuestsController < ApplicationController
       # updateメソッドにはcontextが使用できないため、公開処理にはattributesとsaveメソッドを使用する
       @quest.attributes = quest_params.merge(is_draft: false)
       if @quest.save(context: :publicize)
-        redirect_to quest_path(@quest.id), notice: "下書きのクエストを公開しました！"
+        redirect_to admin_quest_path(@quest.id), notice: "下書きのクエストを公開しました！"
       else
         @quest.is_draft = true
         render :edit, alert: "クエストを公開できませんでした。お手数ですが、入力内容をご確認のうえ再度お試しください"
@@ -52,14 +53,14 @@ class Admin::QuestsController < ApplicationController
     elsif params[:update_post]
       @quest.attributes = quest_params
       if @quest.save(context: :publicize)
-        redirect_to quest_path(@quest.id), notice: "クエストを更新しました！"
+        redirect_to admin_quest_path(@quest.id), notice: "クエストを更新しました！"
       else
         render :edit, alert: "クエストを更新できませんでした。お手数ですが、入力内容をご確認のうえ再度お試しください"
       end
     # ③下書きクエストの更新（非公開）の場合
     else
       if @quest.update(quest_params)
-        redirect_to quest_path(@quest.id), notice: "下書きクエストを更新しました！"
+        redirect_to admin_quest_path(@quest), notice: "下書きクエストを更新しました！"
       else
         render :edit, alert: "更新できませんでした。お手数ですが、入力内容をご確認のうえ再度お試しください"
       end
@@ -68,6 +69,9 @@ class Admin::QuestsController < ApplicationController
 
 
   def destroy
+    @quest = Quest.find(params[:id])
+    @quest.destroy
+    redirect_to '/admin'
   end
 
   private

@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <%= image_tag @quest.get_image(300,300), fallback: "noimage.jpg" %></p>
+  <h3><%= @quest.name %></h3>
+  <p><%= @quest.levels_i18n %></p>
+  <p><%= @quest.price.to_i.to_s(:delimited, delimiter: ',') %></p>
+  <p><%= @quest.time %></p>
+  <p><%= @quest.introduction %></p>
+
+    <%= form_with model: @quest, url:quests_receive_path, local: true do |f| %>
+      <%= f.submit "このクエストにする", class: "btn btn-outline-primary" %>
+    <% end %>
+    
+    <%= link_to "もどる", root_path, class: "btn btn-outline-secondary" %>
+
+</div>

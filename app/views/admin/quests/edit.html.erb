@@ -4,6 +4,12 @@
     <div class="col-8 offset-2 mb-5">
       <%= form_with model: @quest, url: admin_quest_path, local: true do |f| %>
       <table>
+        <tr>
+            <td class="form-group">
+              <th><%= f.label :"Quest image" %></th>
+              <td><%= f.file_field :quest_image, placeholder: "quest_image", accept: "image/*" %></td>
+            </td>
+          </tr>
 
         <tr>
           <div class="form-group">
@@ -15,20 +21,20 @@
         <tr>
           <div class="form-group">
            <%= f.radio_button :level, Quest.levels.key(0) %>
-           <%= f.label :level, Quest.level_i18n[:easy], value: Quest.levels.key(0) %>
+           <%= f.label :level, Quest.levels_i18n[:easy], value: Quest.levels.key(0) %>
 
            <%= f.radio_button :level, Quest.levels.key(1) %>
-           <%= f.label :level, Quest.level_i18n[:normal], value: Quest.levels.key(1) %>
+           <%= f.label :level, Quest.levels_i18n[:normal], value: Quest.levels.key(1) %>
 
            <%= f.radio_button :level, Quest.levels.key(2) %>
-           <%= f.label :star, Quest.level_i18n[:hard], value: Quest.levels.key(2) %>
+           <%= f.label :star, Quest.levels_i18n[:hard], value: Quest.levels.key(2) %>
           </div>
         </tr>
 
         <tr>
           <div class="form-group">
             <%= f.label :"Quest reward", class: "form_label" %>
-            <%= f.text_field :price %>円
+            <%= f.text_field :price %>Ｇ
           </div>
         </tr>
 
@@ -49,7 +55,7 @@
         <tr>
           <div class="row mt-4">
             <div class="form-inline mx-auto">
-              <% if @post_recipe.is_draft == true %>
+              <% if @quest.is_draft == true %>
                 <%= f.submit "クエストを公開", :name => 'publicize_draft', class:'mr-5 btn btn-sm btn-warning' %>
                 <%= f.submit "下書きを更新", :name => 'update_draft', class:'mr-5 btn btn-sm btn-outline-secondary' %>
               <% else %>
@@ -58,12 +64,12 @@
             </div>
           </div>
             <div class="mt-4 pb-3 text-center">
-              <u><%= link_to "クエストを削除", "/post_recipes/#{@post_recipe.id}", method: :delete, data: {confirm: "このクエストを削除しますか？"}, class:'text-danger' %></u>
+              <u><%= link_to "クエストを削除", admin_quest_path(@quest.id), method: :delete, data: {confirm: "このクエストを削除しますか？"}, class:'text-danger' %></u>
             </div>
-            <% end %>
         </tr>
-      <% end %>
       </table>
+      <% end %>
+
     </div>
   </div>
 </div>

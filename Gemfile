@@ -57,6 +57,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise-i18n'
 gem "enum_help"
-gem 'image_processing'
+gem "image_processing", "~> 1.2"
 gem 'mini_magick'
 gem 'active_storage_validations'
+gem 'kaminari','~> 1.2.1'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'

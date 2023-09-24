@@ -6,8 +6,8 @@
           <% @quests.each do |quest| %>
           <div class="col-md-3">
             <%= link_to quest_path(quest) do %>
-         
-            
+
+
             <div class="card mb-3">
               <%= image_tag quest.get_image(250,250), fallback: "noimage.jpg", class: "card-img-top" %>
             <div class="card-body">
@@ -15,14 +15,14 @@
             <p class="card-text"><%= quest.level %></p>
             <% if quest.status == true %>
             <p class="card-text">
-              ¥<%= (quest.price * 1.1).to_i.to_s(:delimited, delimiter: ',') %>
+              <%= (quest.price * 1.1).to_i.to_s(:delimited, delimiter: ',') %>Ｇ
             </p>
             <% else %>
             <p class="card-text">
              <!--クエスト受注済の場合は一覧から消したい-->
             </p>
             <% end %>
-  
+
             </div>
             </div>
             <% end %>
@@ -31,5 +31,5 @@
         </div>
     </div>
   </div>
-    <%= paginate @quests, theme: 'bootstrap-5' %>
+      <%= paginate @quests, theme: 'bootstrap-5' %>
 </div>
