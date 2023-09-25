@@ -13,6 +13,7 @@ class Member::RegistrationsController < Devise::RegistrationsController
   def create
     member = Member.find_or_create_by!(nickname: params[:member][:nickname]) do |member|
       member.password = SecureRandom.urlsafe_base64
+      #member.email = SecureRandom.urlsafe_base64+"@example.com"
       member.birthday = "#{params[:member]['birthday(1i)']}/#{params[:member]['birthday(2i)']}/#{params[:member]['birthday(3i)']}"
     end
     sign_in member

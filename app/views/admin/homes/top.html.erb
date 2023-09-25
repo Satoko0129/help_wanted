@@ -27,7 +27,7 @@
               <td><%= quest.id %></td>
               <td><%= link_to quest.name, admin_quest_path(quest.id) %></td>
               <td><%= link_to quest.level_i18n, admin_quest_path(quest.id) %></td>
-              <td><%= quest.price.to_i.round.to_s(:delimited, delimiter: ',') %></td>
+              <td><%= quest.price.to_i.round.to_s(:delimited, delimiter: ',') %>Ｇ</td>
               <td><%= quest.status_i18n %></td>
             </tr>
           <% end %>

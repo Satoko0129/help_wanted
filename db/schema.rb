@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2023_09_20_112820) do
     t.boolean "is_request", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"email\"", name: "index_members_on_email", unique: true
+    t.index ["nickname"], name: "index_members_on_nickname", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 

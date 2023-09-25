@@ -1,13 +1,13 @@
 class Quest < ApplicationRecord
   belongs_to :member, optional: true
-  has_one_attached :image
+  has_one_attached :quest_image
 
   def get_image(width, height)
-    unless image.attached?
+    unless quest_image.attached?
       file_path = Rails.root.join('app/assets/images/noimage.jpg')
-      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+      quest_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    image.variant(resize_to_fill: [width, height]).processed
+    quest_image.variant(resize_to_fill: [width, height]).processed
   end
 
   with_options presence: true, on: :publicize do

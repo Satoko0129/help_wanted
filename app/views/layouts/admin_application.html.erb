@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HelpWanted</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://kit.fontawesome.com/0d2b76896b.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+  </head>
+
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <% if admin_signed_in? %>
+          <%= link_to "HelpWanted", admin_root_path, class:"header-title navber-brand" %>
+        <% end %>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <% if admin_signed_in? %>
+              <li class="nav-item-activ">
+                  <span class="nav-link text-dark">管理画面</span>
+              </li>
+                <li class="nav-item">
+                  <%= link_to admin_members_path, class: 'nav-link text-dark' do %>
+                    <i class="fa-solid fa-users"></i>
+                      Members list
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to admin_root_path, class: 'nav-link text-dark' do %>
+                    <i class="fa-solid fa-list"></i>
+                      Quests list
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                      Log out
+                  <% end %>
+                </li>
+
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to new_admin_session_path, class: 'nav-link text-dark' do %>
+                    <i class="fas fa-sign-in-alt"></i>
+                      Log in
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+
+      </nav>
+  </header>
+   <% flash.each do |message_type, message| %>
+      <%= message %>
+    <% end %>
+    <%= yield %>
+  <footer>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

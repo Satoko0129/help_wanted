@@ -1,15 +1,13 @@
-<div class="container mt-5">
-  <%= image_tag @quest.get_image(300,300), fallback: "noimage.jpg" %></p>
-  <h3><%= @quest.name %></h3>
-  <p><%= @quest.levels_i18n %></p>
-  <p><%= @quest.price.to_i.to_s(:delimited, delimiter: ',') %></p>
-  <p><%= @quest.time %></p>
-  <p><%= @quest.introduction %></p>
-
-    <%= form_with model: @quest, url:quests_receive_path, local: true do |f| %>
-      <%= f.submit "このクエストにする", class: "btn btn-outline-primary" %>
-    <% end %>
-    
-    <%= link_to "もどる", root_path, class: "btn btn-outline-secondary" %>
-
+<div class="container mt-5" >
+  <%= form_with model: @quest, url: quest_path, method: :post, local: true do |f| %>
+   <%= image_tag @quest.get_image(300,300), fallback: "noimage.jpg" %>
+   <%= f.hidden_field :member_id, value: current_memgber.id %>
+   <%= f.hidden_field :name, value: @quest.name %>
+   <%= f.hidden_field :level, value: @quest.level_i18n %>
+   <%= f.hidden_field :price, value: @quest.price %>
+   <%= f.hidden_field :time, value: @quest.time %>
+   <%= f.hidden_field :introduction, value: @quest.introducution %>
+   <p>クエストがおわったらチェックしてもらってね！</p>
+   <%= f.submit "クエストかんりょう", class: "btn btn-success" %>
+  <% end %>
 </div>

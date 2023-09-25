@@ -1,4 +1,5 @@
 class Admin::QuestsController < ApplicationController
+  layout 'admin_application'
   def index
     @quests = Quest.all
   end
@@ -85,7 +86,8 @@ class Admin::QuestsController < ApplicationController
       :is_draft,
       :price,
       :level,
-      :time
+      :time,
+      :quest_image
     )
   end
 end

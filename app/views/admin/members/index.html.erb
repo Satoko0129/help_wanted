@@ -1,0 +1,39 @@
+<div class="container">
+  <h3 class="my-5">Members list</h3>
+    <div class="row d-flex justify-content-center">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Member ID</th>
+            <th scope="col">Nickname</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Application status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @members.each do |member| %>
+          <tr>
+            <th scope="row">
+              <%= member.id %>
+            </td>
+
+            <td class="text-left">
+             <%= link_to member.nickname, admin_member_path(member) %>
+            </td>
+
+            <td class="col-xs-2">
+              <% if member.is_request == false %>
+              <p class="text-secondary">承認する</p>
+              <% else %>
+              <p class="text-danger">承認しない</p>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%#= paginate @members, theme: 'bootstrap-5' %> 
+    </div>
+</div>
