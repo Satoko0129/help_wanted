@@ -1,0 +1,68 @@
+<div class="container mt-5">
+
+  <h2>Quests</h2>
+  <% if @quests.count > 0 %>
+    <div class="row">
+      <% @quests.each do |quest| %>
+        <div class="col-md-4">
+          <div class="card">
+            <%= image_tag quest.get_image(250,250), fallback: "noimage.jpg", class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= quest.name %>
+              </h5>
+              <div class="card-text">
+                <div>
+                  <%= quest.level_i18n %>
+                </div>
+                <div>
+                  <%= (quest.price * 1.1).to_i.to_s(:delimited, delimiter: ',') %>Ｇ
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <%= link_to 'Complete!', quests_complete_path(quest), class: 'btn btn-warning' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    Nothing... (T_T)
+  <% end %>
+
+
+  <div class="row">
+    <div class="col">
+      <h3 class="my-5"><%= current_member.nickname %>'s Member details</h3>
+        <div class="d-flex align-items-center">
+          <table class="table table-borderless">
+            <tr>
+              <th class="text-center">Member ID</td>
+              <td><%= current_member.id %></td>
+            </tr>
+            <tr>
+              <th class="text-center">Nickname</th>
+              <td><%= current_member.nickname %></td>
+            </tr>
+            <tr>
+              <th class="text-center">Birthday</th>
+              <td><%= current_member.birthday %></td>
+            </tr>
+            <tr>
+              <th class="text-center">wallet</th>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%#= link_to "Edit", edit_admin_member_path, class:"btn btn-success" %>
+                <%#= link_to "Back", admin_members_path, class:"btn btn-primary" %>
+              </td>
+            </tr>
+
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

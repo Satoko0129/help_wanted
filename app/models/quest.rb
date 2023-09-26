@@ -1,4 +1,5 @@
 class Quest < ApplicationRecord
+  has_one :wallet
   belongs_to :member, optional: true
   has_one_attached :quest_image
 
@@ -20,5 +21,5 @@ class Quest < ApplicationRecord
   validates :introduction, length: { maximum: 80 }, on: :publicize
 
   enum level: { easy: 0, normal: 1, hard: 2 }
-  enum status: { recruitment: 0, close: 1, complete: 3 }
+  enum status: { recruitment: 0, close: 1, complete: 2 } # TODO: どこかで齟齬がでたらcomplete = 3になっていないか確認
 end

@@ -17,10 +17,14 @@
               <td><%= @member.birthday %></td>
             </tr>
             <tr>
+              <th class="text-center">wallet</th>
+              <td></td>
+            </tr>
+            <tr>
               <td></td>
               <td>
-                <%= link_to "編集する", edit_admin_member_path, class:"btn btn-success" %>
-                <%= link_to "メンバー一覧を", admin_root_path, class:"btn btn-primary" %>
+                <%= link_to "Edit", edit_admin_member_path, class:"btn btn-success" %>
+                <%= link_to "Back", admin_members_path, class:"btn btn-primary" %>
               </td>
             </tr>
 

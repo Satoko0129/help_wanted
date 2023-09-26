@@ -18,10 +18,14 @@ Rails.application.routes.draw do
 
   scope module: 'member' do
     root to: 'homes#top'
+    get '/mypage' => 'homes#mypage'
     get '/about' => 'homes#about'
-    resources :quests, only: [:show, :update]
-    get 'quests/complete' => 'quests#complete'
-    get 'quests/receive' => 'quests#receive'
+    get '/exchange_requests' => 'quests#exchange_request'
+    post '/exchange_requests' => 'quests#exchange_request_receive'
+    get 'quests/histories' => 'quests#histories'
+    get 'quests/complete/:id' => 'quests#complete', as: 'quests_complete'
+    get 'quests/receive/:id' => 'quests#receive', as: 'quests_receive'
+    resources :quests, only: [:show]
     resources :members, only: [:new, :create, :edit, :show, :update]
     resources :wallets, only: [:show, :update]
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

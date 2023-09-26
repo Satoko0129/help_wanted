@@ -1,5 +1,7 @@
 class Member < ApplicationRecord
   has_many :quests
+  has_many :exchange_requests
+  has_many :wallets
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

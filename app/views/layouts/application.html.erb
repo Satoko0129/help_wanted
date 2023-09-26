@@ -33,9 +33,23 @@
                 </li>
 
                 <li class="nav-item">
-                  <%= link_to members_path, class: 'nav-link text-dark' do %>
+                  <%= link_to mypage_path, class: 'nav-link text-dark' do %>
                     <i class="fa-solid fa-user"></i>
-                      member
+                      My page
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to quests_histories_path, class: 'nav-link text-dark' do %>
+                    <i class="fa-solid fa-user"></i>
+                      Histories
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to exchange_requests_path, class: 'nav-link text-dark' do %>
+                    <i class="fa-solid fa-user"></i>
+                      Exchange Requests
                   <% end %>
                 </li>
 
@@ -101,10 +115,17 @@
 
       </nav>
   </header>
-   <% flash.each do |message_type, message| %>
-      <%= message %>
-    <% end %>
-    <%= yield %>
+  <% if notice %>
+    <div class="alert alert-warning">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <%# flash.each do |message_type, message| %>
+    <%#= message %>
+  <%# end %>
+
+  <%= yield %>
   <footer>
     <div class="container mt-5">
       <div class="row">

@@ -1,0 +1,28 @@
+<div class="container">
+  <h2 class="my-5">Total Wallets</h2>
+  <%= @have_gold %> G
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="my-5">Complete Missions!</h2>
+      <% @histories.each do |history| %>
+        <div>
+          <%= link_to history.quest.name, quest_path(history.quest) %>
+          <small class="text-black-50">(<%= history.created_at.strftime('%Y年%m月%d日') %>)</small>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <h2 class="my-5">ExchangeRequest</h2>
+      <% @exchange_requests.each do |exchange_request| %>
+        <div>
+          <%= exchange_request.request_amount * -1 %>
+          <small class="text-black-50">
+            <%= exchange_request.appoval_flag_i18n %>
+            (<%= exchange_request.created_at.strftime('%Y年%m月%d日') %>)
+          </small>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

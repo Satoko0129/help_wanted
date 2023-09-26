@@ -53,8 +53,9 @@ ActiveRecord::Schema.define(version: 2023_09_20_112820) do
   end
 
   create_table "exchange_requests", force: :cascade do |t|
+    t.integer "member_id", null: false
     t.integer "request_amount", null: false
-    t.boolean "appoval_flag", default: false, null: false
+    t.integer "appoval_flag", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -97,6 +98,7 @@ ActiveRecord::Schema.define(version: 2023_09_20_112820) do
 
   create_table "wallets", force: :cascade do |t|
     t.integer "member_id", null: false
+    t.integer "quest_id", null: false
     t.integer "remaining_money", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
