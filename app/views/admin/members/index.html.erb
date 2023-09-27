@@ -7,7 +7,7 @@
             <th scope="col">Member ID</th>
             <th scope="col">Nickname</th>
             <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col">Exchange amount</th>
             <th scope="col">Application status</th>
           </tr>
         </thead>
@@ -15,25 +15,20 @@
         <tbody class="table-primary">
           <% @members.each do |member| %>
           <tr>
-            <th scope="row">
+            <td scope="row">
               <%= member.id %>
             </td>
-
             <td class="text-left">
              <%= link_to member.nickname, admin_member_path(member) %>
             </td>
+            <td></td>
+            <td></td>
 
-            <td class="col-xs-2">
-              <% if member.is_request == false %>
-              <p class="text-secondary">承認する</p>
-              <% else %>
-              <p class="text-danger">承認しない</p>
-              <% end %>
-            </td>
+
           </tr>
           <% end %>
         </tbody>
       </table>
-      <%#= paginate @members, theme: 'bootstrap-5' %> 
+      <%#= paginate @members, theme: 'bootstrap-5' %>
     </div>
 </div>

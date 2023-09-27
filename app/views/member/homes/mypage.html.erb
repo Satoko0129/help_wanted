@@ -1,6 +1,6 @@
 <div class="container mt-5">
 
-  <h2>Quests</h2>
+  <h2 >Quests</h2>
   <% if @quests.count > 0 %>
     <div class="row">
       <% @quests.each do |quest| %>
@@ -16,7 +16,7 @@
                   <%= quest.level_i18n %>
                 </div>
                 <div>
-                  <%= (quest.price * 1.1).to_i.to_s(:delimited, delimiter: ',') %>Ｇ
+                  <%= quest.price.to_i.to_s(:delimited, delimiter: ',') %>Ｇ
                 </div>
               </div>
             </div>
@@ -50,11 +50,6 @@
               <td><%= current_member.birthday %></td>
             </tr>
             <tr>
-              <th class="text-center">wallet</th>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
               <td>
                 <%#= link_to "Edit", edit_admin_member_path, class:"btn btn-success" %>
                 <%#= link_to "Back", admin_members_path, class:"btn btn-primary" %>

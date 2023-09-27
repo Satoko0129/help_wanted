@@ -63,9 +63,15 @@
 
       </nav>
   </header>
-   <% flash.each do |message_type, message| %>
-      <%= message %>
-    <% end %>
+  <% if notice %>
+    <div class="alert alert-warning">
+      <%= notice %>
+    </div>
+  <% end %>
+
+   <%# flash.each do |message_type, message| %>
+      <%#= message %>
+    <%# end %>
     <%= yield %>
   <footer>
     <div class="container mt-5">
