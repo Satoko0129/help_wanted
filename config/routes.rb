@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
     resources :quests, only: [:show, :edit, :create, :edit, :update, :destroy, :new]
-    resources :members, only: [:index, :show, :edit, :update]
+    resources :members, only: [:index, :show, :edit, :update] do
+      get :permission
+      get :rejected
+    end
     patch 'admin/exchange_requests/:id' => 'update#exchange_request'
     resources :reviews, only: [:new, :create]
   end
