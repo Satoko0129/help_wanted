@@ -9,6 +9,7 @@ class Admin::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @quests = Quest.where(member_id: @member.id).where.not(status: 2)
+    @wallet = Wallet.where(member_id: @member.id).sum(:remaining_money).to_i
   end
 
   def permission #許可 Ｇはそのまま消費される
@@ -27,8 +28,7 @@ class Admin::MembersController < ApplicationController
     member = Member.find(params[:member_id])
     exchange_request = member.exchange_requests.where(appoval_flag: :applying).order(created_at: :desc).first
     if exchange_request
-      exchange_request.appoval_flag = :rejected
-      if exchange_request.save
+      if exchange_request.destroy
       else
       end
     end

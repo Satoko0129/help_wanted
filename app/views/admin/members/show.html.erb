@@ -1,5 +1,5 @@
 <div class="container my-5">
-  
+
   <h2>Quests</h2>
   <% if @quests.count > 0 %>
     <div class="row">
@@ -30,7 +30,7 @@
   <% else %>
     Nothing... (T_T)
   <% end %>
-  
+
   <div class="row">
     <div class="col">
       <h3 class="text-center my-5"><%= @member.nickname %>'s Member details</h3>
@@ -50,7 +50,7 @@
             </tr>
             <tr>
               <th class="text-center">wallet</th>
-              <td></td>
+              <td><%= @wallet %> G</td>
             </tr>
             <tr>
               <td></td>

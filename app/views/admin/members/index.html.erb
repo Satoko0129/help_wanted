@@ -26,8 +26,8 @@
               <%= member.exchange_requests.where(appoval_flag: :applying).order(created_at: :desc).first&.request_amount %>
             </td>
             <td class="d-flex">
-              <%= link_to "許可", admin_member_permission_path(member.id), method: :get, class: "btn btn-success" %>
-              <%= link_to "拒否", admin_member_rejected_path(member.id), method: :get, class: "btn btn-success" %>
+              <%= link_to "許可します", admin_member_permission_path(member.id), method: :get, class: "btn btn-success" %>
+              <%= link_to "許可できません", admin_member_rejected_path(member.id), method: :get, class: "btn btn-success" %>
             </td>
 
 
