@@ -7,4 +7,9 @@ class Member::HomesController < ApplicationController
   def mypage
     @quests = Quest.where(member_id: current_member.id).where.not(status: 2)
   end
+
+  def about
+  end
+
+  
 end

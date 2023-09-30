@@ -1,5 +1,5 @@
 class Member::QuestsController < ApplicationController
-
+before_action :move_to_signed_in, except: [:show]
 before_action :have_gold_sum, only: [:histories, :exchange_request, :exchange_request_receive]
 
   def show
@@ -36,6 +36,13 @@ before_action :have_gold_sum, only: [:histories, :exchange_request, :exchange_re
   end
 
   private
+  def move_to_signed_in
+    unless member_signed_in?
+      #サインインしていないメンバーはログインページが表示される
+      redirect_to  new_member_session_path
+    end
+  end
+
 
   def exchange_request_params
     params.require(:exchange_request).permit(:request_amount).merge(member_id: current_member.id)

@@ -1,33 +1,33 @@
 <div class="container">
   <h3 class="my-5"><i class="fa-solid fa-users"></i> Members list</h3>
     <div class="row d-flex justify-content-center">
-      <table class="table">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Member ID</th>
             <th scope="col">Nickname</th>
             <th scope="col"></th>
-            <th scope="col">Exchange amount</th>
-            <th scope="col">Application status</th>
+            <th scope="col">Exchange Amount</th>
+            <th scope="col">Application Status</th>
           </tr>
         </thead>
 
-        <tbody class="table-primary">
+        <tbody>
           <% @members.each do |member| %>
           <tr>
             <td scope="row">
               <%= member.id %>
             </td>
             <td class="text-left">
-             <%= link_to member.nickname, admin_member_path(member) %>
+             <%= link_to member.nickname, admin_member_path(member), :style=>"color:gray; text-decoration:none;" %>
             </td>
             <td></td>
             <td>
-              <%= member.exchange_requests.where(appoval_flag: :applying).order(created_at: :desc).first&.request_amount %>
+              <%= member.exchange_requests.where(appoval_flag: :applying).order(created_at: :desc).first&.request_amount %> G Applying
             </td>
             <td class="d-flex">
-              <%= link_to "許可します", admin_member_permission_path(member.id), method: :get, class: "btn btn-success" %>
-              <%= link_to "許可できません", admin_member_rejected_path(member.id), method: :get, class: "btn btn-success" %>
+              <%= link_to "OK☺", admin_member_permission_path(member.id), method: :get, class: "btn btn-outline-danger" %>
+              <%= link_to "sorry…💧", admin_member_rejected_path(member.id), method: :get, class: "btn btn-outline-secondary" %>
             </td>
 
 

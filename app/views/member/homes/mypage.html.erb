@@ -1,6 +1,6 @@
 <div class="container mt-5">
 
-  <h2 >Quests</h2>
+  <h2 class= "my-5">Quests</h2>
   <% if @quests.count > 0 %>
     <div class="row">
       <% @quests.each do |quest| %>
@@ -28,7 +28,7 @@
       <% end %>
     </div>
   <% else %>
-    Nothing... (T_T)
+    <h4>Nothing... <i class="fa-regular fa-face-sad-tear"></i></h4>
   <% end %>
 
 

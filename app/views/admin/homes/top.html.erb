@@ -11,23 +11,23 @@
 
   <div class="row">
     <div class="col-sm-10 offset-1">
-      <table class="table mb-5">
+      <table class="table table-hover mb-5">
         <thead>
           <tr>
-            <th>クエストID</strong></th>
-            <th>クエスト名</th>
-            <th>level</th>
-            <th>クエスト報酬</th>
-            <th>ステータス</th>
+            <th>Quest ID</strong></th>
+            <th>Quest Name</th>
+            <th>Level</th>
+            <th>Quest Reward</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
           <% @quests.each do |quest| %>
             <tr>
               <td><%= quest.id %></td>
-              <td><%= link_to quest.name, admin_quest_path(quest.id) %></td>
-              <td><%= link_to quest.level_i18n, admin_quest_path(quest.id) %></td>
-              <td><%= quest.price.to_i.round.to_s(:delimited, delimiter: ',') %>Ｇ</td>
+              <td><%= link_to quest.name, admin_quest_path(quest.id), :style=>"color:gray; text-decoration:none;" %></td>
+              <td><%= link_to quest.level_i18n, admin_quest_path(quest.id), :style=>"color:gray; text-decoration:none;" %></td>
+              <td><%= quest.price.to_i.round.to_s(:delimited, delimiter: ',') %>  G</td>
               <td><%= quest.status_i18n %></td>
             </tr>
           <% end %>
