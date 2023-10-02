@@ -20,6 +20,13 @@ before_action :have_gold_sum, only: [:histories, :exchange_request, :exchange_re
     end
   end
 
+  def giveup
+    #受注したクエストのmember idをnilにする
+    quest = Quest.find(params[:id])
+    quest.update(:member_id => nil)
+    redirect_to mypage_path
+  end
+
   def histories; end
 
   def exchange_request
@@ -29,7 +36,7 @@ before_action :have_gold_sum, only: [:histories, :exchange_request, :exchange_re
   def exchange_request_receive
     @exchange_request = ExchangeRequest.new(exchange_request_params)
     if exchange_request_params[:request_amount].to_i <= @have_gold.to_i && @exchange_request.save
-      redirect_to root_path, notice: 'どうなるかな？'
+      redirect_to root_path, notice: 'どうなるかな？結果をまちましょう！'
     else
       render :exchange_request
     end

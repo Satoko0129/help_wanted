@@ -1,10 +1,10 @@
 <div class="container">
-  <h2 class="my-5">Total Wallets</h2>
-  <h3 class="ml-5"><%= @have_gold %> G</h3>
+  <h2 class="my-5"><i class="fa-solid fa-wallet"></i> Total Wallets</h2>
+  <h1 class="ml-5"><%= @have_gold %> G</h1>
 
   <div class="row">
     <div class="col-md-6">
-      <h2 class="my-5">Complete Missions!</h2>
+      <h2 class="my-5"><i class="fa-solid fa-hands-clapping"></i> Complete Missions!</h2>
       <% @histories.each do |history| %>
         <div>
           <%= link_to history.quest.name, quest_path(history.quest) %>
@@ -13,7 +13,7 @@
       <% end %>
     </div>
     <div class="col-md-6">
-      <h2 class="my-5">ExchangeRequest</h2>
+      <h2 class="my-5"><i class="fa-solid fa-coins"></i><i class="fa-solid fa-rotate-left"></i> ExchangeRequest</h2>
       <% @exchange_requests.each do |exchange_request| %>
         <div>
           <%= exchange_request.request_amount * -1 %>

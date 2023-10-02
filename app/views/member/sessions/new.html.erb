@@ -1,8 +1,8 @@
-<div class="cotainer my-5">
+<div class="container my-5">
   <div class="row">
     <div class=col>
       <div class="col-6 offset-3">
-        <h3>ログインしてね</h3>
+        <h3>Please log in</h3>
           <h6 class="my-3">メンバーはこちらからログイン</h6>
 
         <%= form_with model: @member, url: new_member_session_path, local: true do |f| %>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="actions my-3 text-center">
-          <%= f.submit "ログイン", class: "btn btn-outline-danger" %>
+          <%= f.submit "Log in", class: "btn btn-danger" %>
         </div>
 
         <% end %>

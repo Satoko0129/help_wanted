@@ -1,6 +1,6 @@
 <div class="container mt-5">
 
-  <h2 class= "my-5">Quests</h2>
+  <h2 class= "my-3">Quests</h2>
   <% if @quests.count > 0 %>
     <div class="row">
       <% @quests.each do |quest| %>
@@ -20,8 +20,9 @@
                 </div>
               </div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer text-center">
               <%= link_to 'Complete!', quests_complete_path(quest), class: 'btn btn-warning' %>
+              <%= link_to 'Give up…', quests_giveup_path(quest), method: :delete, data: {confirm: "え？ほんとにやめるの？"}, class:'text-danger btn btn-secondary' %>
             </div>
           </div>
         </div>
@@ -34,7 +35,7 @@
 
   <div class="row">
     <div class="col">
-      <h3 class="my-5"><%= current_member.nickname %>'s Member details</h3>
+      <h3 class="my-5"><i class="fa-solid fa-child-reaching"></i>  <%= current_member.nickname %>'s Member details  <i class="fa-solid fa-child-reaching"></i></h3>
         <div class="d-flex align-items-center">
           <table class="table table-borderless">
             <tr>

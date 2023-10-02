@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get 'quests/histories' => 'quests#histories'
     get 'quests/complete/:id' => 'quests#complete', as: 'quests_complete'
     get 'quests/receive/:id' => 'quests#receive', as: 'quests_receive'
+    delete 'giveup/:id' => 'quests#giveup', as: 'quests_giveup'
     resources :quests, only: [:show]
     resources :members, only: [:new, :create, :edit, :show, :update]
     resources :wallets, only: [:show, :update]

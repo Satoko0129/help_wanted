@@ -8,7 +8,7 @@
             <th scope="col">Nickname</th>
             <th scope="col"></th>
             <th scope="col">Exchange Amount</th>
-            <th scope="col">Application Status</th>
+            <th scope="col">Possibility</th>
           </tr>
         </thead>
 
@@ -23,10 +23,10 @@
             </td>
             <td></td>
             <td>
-              <%= member.exchange_requests.where(appoval_flag: :applying).order(created_at: :desc).first&.request_amount %> G Applying
+              <%= member.exchange_requests.where(appoval_flag: :applying).order(created_at: :desc).first&.request_amount %>
             </td>
-            <td class="d-flex">
-              <%= link_to "OK☺", admin_member_permission_path(member.id), method: :get, class: "btn btn-outline-danger" %>
+            <td>
+              <%= link_to "OK💛", admin_member_permission_path(member.id), method: :get, class: "btn btn-outline-danger" %>
               <%= link_to "sorry…💧", admin_member_rejected_path(member.id), method: :get, class: "btn btn-outline-secondary" %>
             </td>
 
