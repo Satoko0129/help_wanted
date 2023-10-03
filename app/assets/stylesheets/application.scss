@@ -8,8 +8,8 @@ $light: #60c1d9;
 $dark: #284063;
 
 .form-control:focus {
-  border-color: $success;
-  box-shadow: 0 0 0 0.1rem $success;
+    border-color: $success;
+    box-shadow: 0 0 0 0.1rem $success;
 }
 
 
@@ -17,120 +17,184 @@ $dark: #284063;
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
 
-header, nav, footer {
- font-family: 'Itim', cursive, sans-serif;
+header,
+nav,
+footer {
+    font-family: 'Itim', cursive, sans-serif;
 }
 
 .container {
- display: grid;
- grid-template-rows: auto 1fr auto;
- grid-template-columns: 100%;
- min-height: 100vh;
- font-family: 'Itim', cursive, sans-serif;
- background-color: light-gray;
+    font-family: 'Itim', cursive, sans-serif;
+    background-color: light-gray;
+    flex: 1;
 }
 
-
-h2, h3 {
- color: #6209D4;
+footer {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    min-height: 100px;
 }
 
-h4 {
-
+.subtitle {
+    color: black;
 }
+
+h2,
+h3 {
+    color: #6209D4;
+}
+
+h4 {}
 
 h5 {
- color: #8879F1;
+    color: #8879F1;
 }
 
 .link {
- text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 .btn-danger {
-   color: white;
-   background: #8879F1;
-   border-color: #8879F1;
+    color: white;
+    background: #8879F1;
+    border-color: #8879F1;
 }
-.btn-danger:hover, .btn-danger:focus,
-.btn-danger:active, .btn-danger:active:focus, .btn-danger:active:hover, .btn-danger:active.focus,
-.btn-danger.active, .btn-danger.active:focus, .btn-danger.active:hover, .btn-danger.active.focus,
-.open > .dropdown-toggle.btn-danger,
-.open > .dropdown-toggle.btn-danger:hover,
-.open > .dropdown-toggle.btn-danger:focus,
-.open > .dropdown-toggle.btn-danger.focus,
-.btn-danger.disabled:hover, .btn-danger[disabled]:hover, fieldset[disabled] .btn-danger:hover,
-.btn-danger.disabled:focus, .btn-danger[disabled]:focus, fieldset[disabled] .btn-danger:focus,
-.btn-danger.disabled.focus, .btn-danger[disabled].focus, fieldset[disabled] .btn-danger.focus {
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger:active:focus,
+.btn-danger:active:hover,
+.btn-danger:active.focus,
+.btn-danger.active,
+.btn-danger.active:focus,
+.btn-danger.active:hover,
+.btn-danger.active.focus,
+.open>.dropdown-toggle.btn-danger,
+.open>.dropdown-toggle.btn-danger:hover,
+.open>.dropdown-toggle.btn-danger:focus,
+.open>.dropdown-toggle.btn-danger.focus,
+.btn-danger.disabled:hover,
+.btn-danger[disabled]:hover,
+fieldset[disabled] .btn-danger:hover,
+.btn-danger.disabled:focus,
+.btn-danger[disabled]:focus,
+fieldset[disabled] .btn-danger:focus,
+.btn-danger.disabled.focus,
+.btn-danger[disabled].focus,
+fieldset[disabled] .btn-danger.focus {
     //background: 好きな色; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     //color: 好きな色; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
-   color: white;
-   background: #C1A7FF;
-   border-color: #C1A7FF;
+    color: white;
+    background: #C1A7FF;
+    border-color: #C1A7FF;
 }
 
 .btn-warning {
-   color: white;
-   background: #EFA999;
-   border-color: #EFA999;
+    color: white;
+    background: #EFA999;
+    border-color: #EFA999;
 }
-.btn-warning:hover, .btn-warning:focus,
-.btn-warning:active, .btn-warning:active:focus, .btn-warning:active:hover, .btn-warning:active.focus,
-.btn-warning.active, .btn-warning.active:focus, .btn-warning.active:hover, .btn-warning.active.focus,
-.open > .dropdown-toggle.btn-warning,
-.open > .dropdown-toggle.btn-warning:hover,
-.open > .dropdown-toggle.btn-warning:focus,
-.open > .dropdown-toggle.btn-warning.focus,
-.btn-warning.disabled:hover, .btn-warning[disabled]:hover, fieldset[disabled] .btn-warning:hover,
-.btn-warning.disabled:focus, .btn-warning[disabled]:focus, fieldset[disabled] .btn-warning:focus,
-.btn-warning.disabled.focus, .btn-warning[disabled].focus, fieldset[disabled] .btn-warning.focus {
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active,
+.btn-warning:active:focus,
+.btn-warning:active:hover,
+.btn-warning:active.focus,
+.btn-warning.active,
+.btn-warning.active:focus,
+.btn-warning.active:hover,
+.btn-warning.active.focus,
+.open>.dropdown-toggle.btn-warning,
+.open>.dropdown-toggle.btn-warning:hover,
+.open>.dropdown-toggle.btn-warning:focus,
+.open>.dropdown-toggle.btn-warning.focus,
+.btn-warning.disabled:hover,
+.btn-warning[disabled]:hover,
+fieldset[disabled] .btn-warning:hover,
+.btn-warning.disabled:focus,
+.btn-warning[disabled]:focus,
+fieldset[disabled] .btn-warning:focus,
+.btn-warning.disabled.focus,
+.btn-warning[disabled].focus,
+fieldset[disabled] .btn-warning.focus {
     //background: 好きな色; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     //color: 好きな色; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
-   color: white;
-   background: #FFD8B6;
-   border-color: #FFD8B6;
+    color: white;
+    background: #FFD8B6;
+    border-color: #FFD8B6;
 }
 
 .btn-primary {
-   color: white;
-   background: #5FB1F1;
-   border-color: #5FB1F1;
+    color: white;
+    background: #5FB1F1;
+    border-color: #5FB1F1;
 }
-.btn-primary:hover, .btn-primary:focus,
-.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
-.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
-.open > .dropdown-toggle.btn-primary,
-.open > .dropdown-toggle.btn-primary:hover,
-.open > .dropdown-toggle.btn-primary:focus,
-.open > .dropdown-toggle.btn-primary.focus,
-.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.btn-primary:active.focus,
+.btn-primary.active,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary.active.focus,
+.open>.dropdown-toggle.btn-primary,
+.open>.dropdown-toggle.btn-primary:hover,
+.open>.dropdown-toggle.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary.focus,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
     //background: 好きな色; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     //color: 好きな色; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
-   color: white;
-   background: #BED0E9;
-   border-color: #BED0E9;
+    color: white;
+    background: #BED0E9;
+    border-color: #BED0E9;
 }
 
 .btn-secondary {
-   color: white;
-   background: #ED6D9C;
-   border-color: #ED6D9C;
+    color: white;
+    background: #ED6D9C;
+    border-color: #ED6D9C;
 }
-.btn-secondary:hover, .btn-secondary:focus,
-.btn-secondary:active, .btn-secondary:active:focus, .btn-secondary:active:hover, .btn-secondary:active.focus,
-.btn-secondary.active, .btn-secondary.active:focus, .btn-secondary.active:hover, .btn-secondary.active.focus,
-.open > .dropdown-toggle.btn-secondary,
-.open > .dropdown-toggle.btn-secondary:hover,
-.open > .dropdown-toggle.btn-secondary:focus,
-.open > .dropdown-toggle.btn-secondary.focus,
-.btn-secondary.disabled:hover, .btn-secondary[disabled]:hover, fieldset[disabled] .btn-secondary:hover,
-.btn-secondary.disabled:focus, .btn-secondary[disabled]:focus, fieldset[disabled] .btn-secondary:focus,
-.btn-secondary.disabled.focus, .btn-secondary[disabled].focus, fieldset[disabled] .btn-secondary.focus {
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary:active:focus,
+.btn-secondary:active:hover,
+.btn-secondary:active.focus,
+.btn-secondary.active,
+.btn-secondary.active:focus,
+.btn-secondary.active:hover,
+.btn-secondary.active.focus,
+.open>.dropdown-toggle.btn-secondary,
+.open>.dropdown-toggle.btn-secondary:hover,
+.open>.dropdown-toggle.btn-secondary:focus,
+.open>.dropdown-toggle.btn-secondary.focus,
+.btn-secondary.disabled:hover,
+.btn-secondary[disabled]:hover,
+fieldset[disabled] .btn-secondary:hover,
+.btn-secondary.disabled:focus,
+.btn-secondary[disabled]:focus,
+fieldset[disabled] .btn-secondary:focus,
+.btn-secondary.disabled.focus,
+.btn-secondary[disabled].focus,
+fieldset[disabled] .btn-secondary.focus {
     //background: 好きな色; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     //color: 好きな色; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
-   color: white;
-   background: #EFA999;
-   border-color: #EFA999;
+    color: white;
+    background: #EFA999;
+    border-color: #EFA999;
 }

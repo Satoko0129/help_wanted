@@ -27,8 +27,11 @@
           <th>Explanatory Text</th>
           <td><%= @quest.introduction %></td>
         </tr>
+        <tr>
+          <th><p><%= link_to 'To edit', edit_admin_quest_path(@quest.id), class: 'btn btn-primary' %></p></th>
+          <td></td>
+        </tr>
       </table>
     </div>
   </div>
-    <p><%= link_to 'To edit', edit_admin_quest_path(@quest.id), class: 'btn btn-outline-secondary' %></p>
 </div>
