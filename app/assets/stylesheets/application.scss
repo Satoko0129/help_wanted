@@ -22,6 +22,10 @@ header, nav, footer {
 }
 
 .container {
+ display: grid;
+ grid-template-rows: auto 1fr auto;
+ grid-template-columns: 100%;
+ min-height: 100vh;
  font-family: 'Itim', cursive, sans-serif;
  background-color: light-gray;
 }
@@ -31,8 +35,16 @@ h2, h3 {
  color: #6209D4;
 }
 
+h4 {
+
+}
+
 h5 {
  color: #8879F1;
+}
+
+.link {
+ text-decoration: none !important;
 }
 
 .btn-danger {

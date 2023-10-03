@@ -15,9 +15,9 @@
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <% if admin_signed_in? %>
-          <%= link_to "HelpWanted!!", admin_root_path, class:"header-title navber-brand", :style=>"color:gray; text-decoration:none;" %>
+          <%= link_to "HelpWanted!!", admin_root_path, class:"header-title navber-brand", :style=>"color:white; text-decoration:none;" %>
         <% end %>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,24 +27,24 @@
             <ul class="navbar-nav">
               <% if admin_signed_in? %>
               <li class="nav-item-activ mr-5">
-                  <span class="nav-link text-primary">Administrator screen</span>
+                  <span class="nav-link text-dark"><strong>Administrator screen</strong></span>
               </li>
                 <li class="nav-item mr-2">
-                  <%= link_to admin_members_path, class: 'nav-link text-gray' do %>
+                  <%= link_to admin_members_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-users"></i>
                       Members list
                   <% end %>
                 </li>
 
                 <li class="nav-item mr-2">
-                  <%= link_to admin_root_path, class: 'nav-link text-gray' do %>
+                  <%= link_to admin_root_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-list"></i>
                       Quests list
                   <% end %>
                 </li>
 
                 <li class="nav-item mr-2">
-                  <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-gray' do %>
+                  <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-right-from-bracket"></i>
                       Log out
                   <% end %>
@@ -52,7 +52,7 @@
 
               <% else %>
                 <li class="nav-item">
-                  <%= link_to new_admin_session_path, class: 'nav-link text-dark' do %>
+                  <%= link_to new_admin_session_path, class: 'nav-link text-white' do %>
                     <i class="fas fa-sign-in-alt"></i>
                       Log in
                   <% end %>

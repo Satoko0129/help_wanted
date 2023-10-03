@@ -1,29 +1,22 @@
-<div class="container mt-5 mr-5 ml-5">
+<div class="container text-center my-5">
   <div class="row">
     <div class="col-md-10">
+      <h1><strong>Help Wanted!!</strong></h1>
+      <p class="mb-5"><strong>～Let's start the quest～</strong></p>
       <h3><i class="fa-solid fa-list"></i> Quests list</h3><h5>(全<%= @total_quests.count %>件)</h5>
         <div class="row">
           <% @quests.each do |quest| %>
           <div class="col-md-3 mt-5">
-            <%= link_to quest_path(quest) do %>
+            <%= link_to quest_path(quest), class: "link" do %>
 
 
-            <div class="card mb-3">
-              <%= image_tag quest.get_image(250,250), fallback: "noimage.jpg", class: "card-img-top" %>
-            <div class="card-body">
-            <h5 class="card-title"><%= quest.name %></h5>
-            <p class="card-text"><%= quest.level_i18n %></p>
-            <% if quest.status == true %>
-            <p class="card-text">
-              <%= (quest.price * 1.1).to_i.to_s(:delimited, delimiter: ',') %>Ｇ
-            </p>
-            <% else %>
-            <p class="card-text">
-             <!--クエスト受注済の場合は一覧から消したい-->
-            </p>
-            <% end %>
-
-            </div>
+            <div class="card border-warning text-white bg-warning mb-3">
+              <div class="card-header border-light  text-center"><strong><%= quest.name %></strong></div>
+            <%= image_tag quest.get_image(250,250), fallback: "noimage.jpg", class: "card-img-top" %>
+              <div class="card-footer border-light">
+              <p class="card-text text-center">Level: <%= quest.level_i18n %></p>
+              <p class="card-text text-center">Reward: <%= quest.price.to_i.to_s(:delimited, delimiter: ',') %> G</p>
+              </div>
             </div>
             <% end %>
           </div>

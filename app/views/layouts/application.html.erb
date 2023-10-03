@@ -15,11 +15,11 @@
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <% if admin_signed_in? %>
-          <%= link_to "HelpWanted!!", admin_root_path, class:"header-title navber-brand", :style=>"color:gray; text-decoration:none;" %>
+          <%= link_to "HelpWanted!!", admin_root_path, class:"header-title navber-brand", :style=>"color:white; text-decoration:none;" %>
         <% else %>
-          <%= link_to "HelpWanted!!", root_path, class: "header-title navbar-brand", :style=>"color:gray; text-decoration:none;" %>
+          <%= link_to "HelpWanted!!", root_path, class: "header-title navbar-brand", :style=>"color:white; text-decoration:none;" %>
         <% end %>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,56 +33,56 @@
                 </li>
 
                 <li class="nav-item mr-2">
-                  <%= link_to mypage_path, class: 'nav-link text-dark' do %>
+                  <%= link_to mypage_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-user"></i>
                       My page
                   <% end %>
                 </li>
 
                 <li class="nav-item mr-2">
-                  <%= link_to quests_histories_path, class: 'nav-link text-dark' do %>
+                  <%= link_to quests_histories_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-clock-rotate-left"></i>
                       Histories
                   <% end %>
                 </li>
 
                 <li class="nav-item mr-2">
-                  <%= link_to exchange_requests_path, class: 'nav-link text-dark' do %>
+                  <%= link_to exchange_requests_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-coins"></i><i class="fa-solid fa-rotate-left"></i>
                       Exchange Requests
                   <% end %>
                 </li>
 
                 <li class="nav-item mr-2">
-                  <%= link_to root_path, class: 'nav-link text-dark' do %>
+                  <%= link_to root_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-list"></i>
                       Quests list
                   <% end %>
                 </li>
 
                 <li class="nav-item mr-2">
-                  <%= link_to destroy_member_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                  <%= link_to destroy_member_session_path, method: :delete, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-right-from-bracket"></i>
                       Log out
                   <% end %>
                 </li>
               <% elsif admin_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to admin_members_path, class: 'nav-link text-dark' do %>
+                  <%= link_to admin_members_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-users"></i>
                       Members list
                   <% end %>
                 </li>
 
                 <li class="nav-item">
-                  <%= link_to admin_root_path, class: 'nav-link text-dark' do %>
+                  <%= link_to admin_root_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-list"></i>
                       Quests list
                   <% end %>
                 </li>
 
                 <li class="nav-item">
-                  <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                  <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-right-from-bracket"></i>
                       Log out
                   <% end %>
@@ -90,21 +90,21 @@
 
               <% elsif %>
                 <li class="nav-item">
-                  <%= link_to about_path, class: 'nav-link text-dark' do %>
+                  <%= link_to about_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-link"></i>
                       About
                   <% end %>
                 </li>
 
                 <li class="nav-item">
-                  <%= link_to new_member_registration_path, class: 'nav-link text-dark' do %>
+                  <%= link_to new_member_registration_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-user-plus"></i>
                       Sign up
                   <% end %>
                 </li>
 
                 <li class="nav-item">
-                  <%= link_to new_member_session_path, class: 'nav-link text-dark' do %>
+                  <%= link_to new_member_session_path, class: 'nav-link text-white' do %>
                     <i class="fas fa-sign-in-alt"></i>
                       Log in
                   <% end %>
@@ -126,7 +126,7 @@
   <%# end %>
 
   <%= yield %>
-  <footer>
+  <footer class="bg-info">
     <div class="container mt-5">
       <div class="row">
         <div class="mx-auto">
