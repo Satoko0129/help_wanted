@@ -2,11 +2,11 @@ class Admin::QuestsController < ApplicationController
   layout 'admin_application'
   def index
     @quests = Quest.all
+    
   end
 
   def show
     @quest = Quest.find(params[:id])
-    #クエストを受注したメンバーの名前を表示
   end
 
   def new
