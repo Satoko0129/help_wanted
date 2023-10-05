@@ -1,39 +1,30 @@
 <div class="container my-5">
-
-  <h2>Quests</h2>
+  <div class="text-center">
+  <h2 class="mb-3">Challenging Quests</h2>
   <% if @quests.count > 0 %>
     <div class="row">
       <% @quests.each do |quest| %>
         <div class="col-md-4">
-          <div class="card">
+          <div class="card border-warning text-white bg-warning mb-3">
+            <div class="card-header border-light  text-center"><strong><%= quest.name %></strong></div>
             <%= image_tag quest.get_image(250,250), fallback: "noimage.jpg", class: "card-img-top" %>
-            <div class="card-body">
-              <h5 class="card-title">
-                <%= quest.name %>
-              </h5>
-              <div class="card-text">
-                <div>
-                  <%= quest.level_i18n %>
-                </div>
-                <div>
-                  <%= quest.price.to_i.to_s(:delimited, delimiter: ',') %>Ｇ
-                </div>
-              </div>
-            </div>
-            <div class="card-footer">
-              <%= @quests.status %>
+            <div class="card-footer border-light">
+              <p class="card-text text-center">Level: <%= quest.level_i18n %></p>
+              <p class="card-text text-center">Reward: <%= quest.price.to_i.to_s(:delimited, delimiter: ',') %> G</p>
             </div>
           </div>
         </div>
+    </div>
       <% end %>
     </div>
   <% else %>
-    Nothing... (T_T)
+    <h4>Nothing... <i class="fa-regular fa-face-sad-tear"></i></h4>
   <% end %>
+  </div>
 
   <div class="row">
     <div class="col">
-      <h3 class="text-center my-5"><%= @member.nickname %>'s Member details</h3>
+      <h3 class="text-center my-5"><%= @member.nickname %>'s details</h3>
         <div class="col-md-6 mx-auto">
           <table class="table table-borderless">
             <tr>
@@ -50,7 +41,7 @@
             </tr>
             <tr>
               <th class="text-center">wallet</th>
-              <td><%= @wallet %> G</td>
+              <td><%= @have_gold %> G</td>
             </tr>
             <tr>
               <td></td>

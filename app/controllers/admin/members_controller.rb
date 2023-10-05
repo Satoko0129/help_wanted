@@ -9,7 +9,11 @@ class Admin::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @quests = Quest.where(member_id: @member.id).where.not(status: 2)
-    @wallet = Wallet.where(member_id: @member.id).sum(:remaining_money).to_i
+
+    histories = Wallet.where(member_id: params[:id]).order(created_at: :desc)
+    exchange_requests = ExchangeRequest.where(member_id: params[:id]).order(created_at: :desc)
+
+    @have_gold = histories.sum(:remaining_money).to_i - exchange_requests.where.not(appoval_flag: 2).sum(:request_amount)
   end
 
   def permission #許可 Ｇはそのまま消費される

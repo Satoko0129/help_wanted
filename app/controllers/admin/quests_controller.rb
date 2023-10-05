@@ -1,8 +1,8 @@
 class Admin::QuestsController < ApplicationController
   layout 'admin_application'
   def index
-    @quests = Quest.all
-    
+    @quests = Quest.published.page(params[:page]).reverse_order
+    #Quest.publishedとすることで、投稿されたものだけを取得。(下書きのものを取得しない)
   end
 
   def show
@@ -37,6 +37,7 @@ class Admin::QuestsController < ApplicationController
     @quest = Quest.find(params[:id])
     @quests = Quest.all
   end
+  
 
   def update
     @quest = Quest.find(params[:id])

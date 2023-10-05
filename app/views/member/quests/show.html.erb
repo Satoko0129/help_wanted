@@ -1,9 +1,9 @@
-<div class="container mt-5">
+<div class="container text-center my-5">
  <%= image_tag @quest.get_image(300,300), fallback: "noimage.jpg" %>
  <h3><%= @quest.name %></h3>
- <p><%= @quest.level_i18n %></p>
- <p><%= @quest.price.to_i.to_s(:delimited, delimiter: ',') %>Ｇ</p>
- <p><%= @quest.time %>分</p>
+ <p>Level : <%= @quest.level_i18n %></p>
+ <p>Reward : <%= @quest.price.to_i.to_s(:delimited, delimiter: ',') %>Ｇ</p>
+ <p>Time : <%= @quest.time %>分</p>
  <p><%= simple_format(@quest.introduction) %></p>
  <%= link_to "このクエストにする", quests_receive_path(@quest), class: "btn btn-primary" unless @quest.status == 'complete' %>
  <%= link_to "最初のページにもどる", root_path, class: "btn btn-secondary" %>
