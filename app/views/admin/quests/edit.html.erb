@@ -57,15 +57,15 @@
           <div class="row mt-4">
             <div class="form-inline mx-auto">
               <% if @quest.is_draft == true %>
-                <%= f.submit "クエストを公開", :name => 'publicize_draft', class:'mr-5 btn btn-sm btn-warning' %>
-                <%= f.submit "下書きを更新", :name => 'update_draft', class:'mr-5 btn btn-secondary' %>
+                <%= f.submit "Publish the quest", :name => 'publicize_draft', class:'mr-5 btn btn-warning' %>
+                <%= f.submit "Update draft", :name => 'update_draft', class:'mr-5 btn btn-primary' %>
               <% else %>
-                <%= f.submit "クエストを更新", :name => 'update_post', class:'btn btn-danger' %>
+                <%= f.submit "Update quest", :name => 'update_post', class:'btn btn-secondary' %>
               <% end %>
             </div>
           </div>
             <div class="mt-4 pb-3 text-center">
-              <u><%= link_to "クエストを削除", admin_quest_path(@quest.id), method: :delete, data: {confirm: "このクエストを削除しますか？"}, class:'btn btn-warning' %></u>
+              <u><%= link_to "delete quest", admin_quest_path(@quest.id), method: :delete, data: {confirm: "このクエストを削除しますか？"}, class:'btn btn-warning' %></u>
             </div>
         </tr>
       </table>

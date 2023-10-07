@@ -3,6 +3,9 @@ class Quest < ApplicationRecord
   belongs_to :member, optional: true
   has_one_attached :quest_image
 
+  scope :not_draft, -> { where(is_draft: false) }
+  scope :is_draft, -> { where(is_draft: true) }
+
   def get_image(width, height)
     unless quest_image.attached?
       file_path = Rails.root.join('app/assets/images/noimage.jpg')
