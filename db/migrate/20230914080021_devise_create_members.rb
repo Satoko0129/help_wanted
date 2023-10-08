@@ -17,6 +17,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[6.1]
       t.date :birthday, null: false
       t.boolean :is_request, default: false, null: false
       t.timestamps null: false
+      t.boolean :is_guest, default: false, null: false
     end
 
     add_index :members, :nickname,                unique: true

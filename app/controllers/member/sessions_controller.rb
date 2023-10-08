@@ -11,6 +11,12 @@ class Member::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
+  def guest_sign_in
+    member = Member.guest
+    sign_in member
+    redirect_to root_path, notice: 'ゲストメンバーとしてログインしました。'
+  end
+  
   def create
     birth_day = "#{params[:member]['birthday(1i)']}/#{params[:member]['birthday(2i)']}/#{params[:member]['birthday(3i)']}"
     member = Member.find_by(nickname: params[:member][:nickname], birthday: birth_day)

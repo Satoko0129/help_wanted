@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   devise_for :members, skip: [:passwords], controllers: {
     registrations: "member/registrations",
     sessions: 'member/sessions'
+    #post 'homes/guest_sign_in', to 'homes#new_guest'
   }
+  devise_scope :member do
+    post 'member/guest_sign_in', to: 'member/sessions#guest_sign_in'
+  end
 
   scope module: 'member' do
     root to: 'homes#top'

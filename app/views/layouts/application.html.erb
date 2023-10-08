@@ -67,21 +67,21 @@
                   <% end %>
                 </li>
               <% elsif admin_signed_in? %>
-                <li class="nav-item">
+                <li class="nav-item mr-2">
                   <%= link_to admin_members_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-users"></i>
                       Members list
                   <% end %>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item mr-2">
                   <%= link_to admin_root_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-list"></i>
                       Quests list
                   <% end %>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item mr-2">
                   <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-right-from-bracket"></i>
                       Log out
@@ -89,24 +89,31 @@
                 </li>
 
               <% elsif %>
-                <li class="nav-item">
+                <li class="nav-item mr-2">
                   <%= link_to about_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-link"></i>
                       About
                   <% end %>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item mr-2">
                   <%= link_to new_member_registration_path, class: 'nav-link text-white' do %>
                     <i class="fa-solid fa-user-plus"></i>
                       Sign up
                   <% end %>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item mr-2">
                   <%= link_to new_member_session_path, class: 'nav-link text-white' do %>
                     <i class="fas fa-sign-in-alt"></i>
                       Log in
+                  <% end %>
+                </li>
+                
+                <li class="nav-item mr-2">
+                  <%= link_to  member_guest_sign_in_path, class: 'nav-link text-black', method: :post do %>
+                    <i class="fa-solid fa-person-circle-question"></i>
+                      Guest Log in
                   <% end %>
                 </li>
               <% end %>

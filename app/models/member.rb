@@ -17,5 +17,13 @@ class Member < ApplicationRecord
   def email_changed?
     false
   end
+  
+  def self.guest
+    find_or_create_by!(is_guest: true) do |member|
+      member.password = SecureRandom.urlsafe_base64
+      member.nickname = 'ゲスト'
+      member.birthday = '2023-01-01'
+    end
+  end
 
 end
