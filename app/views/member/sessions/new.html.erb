@@ -15,7 +15,7 @@
 
         <div class="field mt-2 mb-5">
           <%= f.label :"たんじょうび", class: "form-label mt-3" %><br>
-          <%= raw sprintf(f.date_select( :birthday, prefix:'member', prompt:"選択してください", use_month_numbers:true, start_year:Time.now.year, end_year:2000, date_separator:'%s'),'年','月')+'日' %>
+          <%= raw sprintf(f.date_select( :birthday, prefix:'member', prompt:"えらんでね", use_month_numbers:true, start_year:Time.now.year, end_year:2000, date_separator:'%s'),'年','月')+'日' %>
         </div>
 
         <div class="actions my-3 text-center">
