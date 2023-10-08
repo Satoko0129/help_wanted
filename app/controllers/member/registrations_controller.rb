@@ -17,6 +17,7 @@ class Member::RegistrationsController < Devise::RegistrationsController
       member.birthday = "#{params[:member]['birthday(1i)']}/#{params[:member]['birthday(2i)']}/#{params[:member]['birthday(3i)']}"
     end
     sign_in member
+    redirect_to root_path
   #   super
   end
 
