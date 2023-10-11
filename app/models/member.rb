@@ -17,7 +17,7 @@ class Member < ApplicationRecord
   def email_changed?
     false
   end
-  
+
   def self.guest
     find_or_create_by!(is_guest: true) do |member|
       member.password = SecureRandom.urlsafe_base64

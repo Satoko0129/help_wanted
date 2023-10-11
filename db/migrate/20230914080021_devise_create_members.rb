@@ -12,7 +12,6 @@ class DeviseCreateMembers < ActiveRecord::Migration[6.1]
 
       ## Rememberable
       t.datetime :remember_created_at
-      t.string :name
       t.string :nickname, null: false
       t.date :birthday, null: false
       t.boolean :is_request, default: false, null: false
