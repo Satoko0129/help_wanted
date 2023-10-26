@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  devise_for :admin, skip: [:passwords] ,controllers: {
+    registrations: "admin/registrations",
     sessions: "admin/sessions"
   }
 
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
     end
     patch 'admin/exchange_requests/:id' => 'update#exchange_request'
     resources :reviews, only: [:new, :create]
+    get    '/relationships/invitation_code', to: "relationships#invitation_code"
+    resources :relationships,       only: [:new, :create] 
   end
 
   devise_for :members, skip: [:passwords], controllers: {

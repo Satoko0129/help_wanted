@@ -2,6 +2,7 @@ class Member < ApplicationRecord
   has_many :quests
   has_many :exchange_requests
   has_many :wallets
+  belongs_to :admin,  foreign_key: 'admin_invitation_code', primary_key: 'invitation_code'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

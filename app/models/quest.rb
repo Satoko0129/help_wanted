@@ -1,5 +1,6 @@
 class Quest < ApplicationRecord
   has_one :wallet
+  belongs_to :admin
   belongs_to :member, optional: true
   has_one_attached :quest_image
 

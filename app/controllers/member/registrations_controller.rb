@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Member::RegistrationsController < Devise::RegistrationsController
-  #before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -11,14 +11,15 @@ class Member::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    member = Member.find_or_create_by!(nickname: params[:member][:nickname]) do |member|
-      member.password = SecureRandom.urlsafe_base64
-      #member.email = SecureRandom.urlsafe_base64+"@example.com"
-      member.birthday = "#{params[:member]['birthday(1i)']}/#{params[:member]['birthday(2i)']}/#{params[:member]['birthday(3i)']}"
-    end
-    sign_in member
-    redirect_to root_path
-  #   super
+    #@admin = Admin.find_by(invitation_code: params[:invitation_code])
+    #member = Member.find_or_create_by!(nickname: params[:member][:nickname], admin: @admin) do |member|
+    #   member.password = SecureRandom.urlsafe_base64
+    #   #member.email = SecureRandom.urlsafe_base64+"@example.com"
+    #   member.birthday = "#{params[:member]['birthday(1i)']}/#{params[:member]['birthday(2i)']}/#{params[:member]['birthday(3i)']}"
+    # end
+    # sign_in member
+    # redirect_to root_path
+     super
   end
 
   # GET /resource/edit
@@ -48,9 +49,10 @@ class Member::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  #def configure_sign_up_params
-  #  devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
-  #end
+  def configure_sign_up_params
+    #binding.pry
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :birthday, :admin_invitation_code])
+  end
 
 #  def configure_permitted_parameters
 #    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :birthday])

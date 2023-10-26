@@ -2,6 +2,7 @@ class CreateQuests < ActiveRecord::Migration[6.1]
   def change
     create_table :quests do |t|
       t.integer :member_id
+      t.integer :admin_id
       t.string :name, null: false
       t.text :introduction, null: false
       t.string :price, null: false

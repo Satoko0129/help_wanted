@@ -14,7 +14,8 @@ class Admin::QuestsController < ApplicationController
   end
 
   def create
-    @quest = Quest.new(quest_params)
+    @quest = current_admin.quests.new(quest_params)
+    #@quest = Quest.new(quest_params)
     # 投稿ボタンを押下した場合
     if params[:post]
       if @quest.save(context: :publicize)

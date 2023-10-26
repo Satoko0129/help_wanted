@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2023_09_20_112820) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "invitation_code", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 2023_09_20_112820) do
 
   create_table "members", force: :cascade do |t|
     t.string "encrypted_password", default: "", null: false
+    t.string "admin_invitation_code"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -71,12 +73,14 @@ ActiveRecord::Schema.define(version: 2023_09_20_112820) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_guest", default: false, null: false
+    t.string "email"
     t.index ["nickname"], name: "index_members_on_nickname", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
   create_table "quests", force: :cascade do |t|
     t.integer "member_id"
+    t.integer "admin_id"
     t.string "name", null: false
     t.text "introduction", null: false
     t.string "price", null: false

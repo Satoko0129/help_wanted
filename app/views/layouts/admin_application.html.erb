@@ -30,6 +30,7 @@
               <% if admin_signed_in? %>
               <li class="nav-item-activ mr-5">
                   <span class="nav-link text-dark"><strong>Administrator screen</strong></span>
+                  <span class="nav-link text-dark"><strong>Invitation code:<%= current_admin.invitation_code %></strong></span>
               </li>
                 <li class="nav-item mr-2">
                   <%= link_to admin_members_path, class: 'nav-link text-white' do %>
@@ -57,6 +58,13 @@
                   <%= link_to new_admin_session_path, class: 'nav-link text-white' do %>
                     <i class="fas fa-sign-in-alt"></i>
                       Log in
+                  <% end %>
+                </li>
+                
+                <li class="nav-item mr-2">
+                  <%= link_to new_admin_registration_path, class: 'nav-link text-white' do %>
+                    <i class="fa-solid fa-user-plus"></i>
+                      Sign up
                   <% end %>
                 </li>
               <% end %>
