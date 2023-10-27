@@ -11,6 +11,7 @@ class Member::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    #byebug
     #@admin = Admin.find_by(invitation_code: params[:invitation_code])
     #member = Member.find_or_create_by!(nickname: params[:member][:nickname], admin: @admin) do |member|
     #   member.password = SecureRandom.urlsafe_base64
@@ -19,7 +20,7 @@ class Member::RegistrationsController < Devise::RegistrationsController
     # end
     # sign_in member
     # redirect_to root_path
-     super
+    super
   end
 
   # GET /resource/edit

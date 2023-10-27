@@ -1,5 +1,5 @@
 class Admin < ApplicationRecord
-  has_many :members, primary_key: 'invitation_code', foreign_key: 'admin_invitation_code'
+  has_many :members
   has_many :quests
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

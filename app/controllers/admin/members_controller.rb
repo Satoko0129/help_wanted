@@ -2,7 +2,7 @@ class Admin::MembersController < ApplicationController
   layout 'admin_application'
 
   def index
-    @members = Member.all
+    @members = current_admin.members.all
 
   end
 

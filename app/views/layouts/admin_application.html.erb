@@ -83,6 +83,10 @@
       <%#= message %>
     <%# end %>
     <%= yield %>
+    <% if Rails.env.development? %>
+      <div>admin: <%= current_admin.inspect %></div>
+      <div>member: <%= current_member.inspect %></div>
+    <% end %>
   <footer class="bg-info">
     <div class="container mt-5">
       <div class="row">

@@ -1,49 +1,5 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 px-sm-0 offset-sm-1">
-      <h3 class="my-5"><i class="fa-solid fa-list"></i> Quests list</h3>
-    </div>
-
-    <div class="col-sm-2 px-sm-0 text-right mt-5">
-      <%= link_to "New quest", new_admin_quest_path, class: "btn btn-secondary" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-10 offset-1">
-      <table class="table table-hover mb-5">
-        <thead>
-          <tr>
-            <th><span style='color: #FF1A6F'>Quest ID</span></th>
-            <th><span style='color: #13EEFF'>Quest Name</span></th>
-            <th><span style='color: #2C7CFF'>Level</span></th>
-            <th><span style='color: #ffa500'>Quest Reward</span></th>
-            <th><span style='color: #DC143C'>Status</span></th>
-            <th><span style='color: #00FF00'>Contractor</span></th>
-            <th><span style='color: #FFFF00'>Public or Draft</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @quests.each do |quest| %>
-            <tr>
-              <td><%= quest.id %></td>
-              <td><%= link_to quest.name, admin_quest_path(quest.id), :style=>"color:black; text-decoration:none;" %></td>
-              <td><%= link_to quest.level_i18n, admin_quest_path(quest.id), :style=>"color:black; text-decoration:none;" %></td>
-              <td><%= quest.price.to_i.round.to_s(:delimited, delimiter: ',') %>  G</td>
-              <td><%= quest.status_i18n %></td>
-              <td><%= quest.member ? quest.member.nickname : nil %></td><!--三項演算子を使用-->
-              <td>
-                <% if quest.is_draft == true %>
-                  <span style='color: red;'>Draft</span>
-                <% else %>
-                  Release
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <%= paginate @quests, theme: 'bootstrap-5' %>
-</div>
+<% if current_admin %>
+  <%= render "admin/homes/top_for_login" %>
+<% else %>
+  <%= render "admin/homes/top_for_logout" %>
+<% end %>

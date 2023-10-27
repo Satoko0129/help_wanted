@@ -2,7 +2,7 @@ class Member < ApplicationRecord
   has_many :quests
   has_many :exchange_requests
   has_many :wallets
-  belongs_to :admin,  foreign_key: 'admin_invitation_code', primary_key: 'invitation_code'
+  belongs_to :admin
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,9 +12,12 @@ class Member < ApplicationRecord
   validates :nickname, uniqueness: true, presence: true, length: { maximum: 20 }
 #  validates :birthday, presence: true
 
+  before_validation :set_admin_id
+
   def email_required?
     false
   end
+  
   def email_changed?
     false
   end
@@ -27,4 +30,10 @@ class Member < ApplicationRecord
     end
   end
 
+  private
+  
+  def set_admin_id
+    admin = Admin.find_by(invitation_code: self.admin_invitation_code)
+    self.admin_id = admin.id if admin && self.new_record?
+  end
 end

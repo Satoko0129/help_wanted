@@ -1,29 +1,5 @@
-<div class="container text-center my-5">
-  <div class="row">
-    <div class="col-md-10">
-      <h1><strong><span style= 'color: #2C7CFF;'>H</span><span style= 'color: #7B3CFF;'>e</span><span style= 'color: #FF1A6F;'>l</span><span style='color: #FF570D;'>p</span>
-      <span style='color: #BEFF15;'>W</span><span style='color: #13EEFF;'>a</span><span style='color: #2C7CFF;'>n</span><span style='color: #7B3CFF;'>t</span><span style='color: #FF1A6F;'>e</span><span style='color: #FF570D;'>d</span><span style='color: #FF1A6F;'>!!</span></strong></h1>
-      <p class="mb-5"><strong>～Let's start the quest～</strong></p>
-      <h3><i class="fa-solid fa-list"></i> Quests list</h3><h5>(全<%= @total_quests.count %>件)</h5>
-        <div class="row">
-          <% @quests.each do |quest| %>
-          <div class="col-md-3 mt-5">
-            <%= link_to quest_path(quest), class: "link" do %>
-
-
-            <div class="card border-warning text-white bg-warning mb-3">
-              <div class="card-header border-light  text-center"><strong><%= quest.name %></strong></div>
-            <%= image_tag quest.get_image(250,250), fallback: "noimage.jpg", class: "card-img-top" %>
-              <div class="card-footer border-light">
-              <p class="card-text text-center">Level: <%= quest.level_i18n %></p>
-              <p class="card-text text-center">Reward: <%= quest.price.to_i.to_s(:delimited, delimiter: ',') %> G</p>
-              </div>
-            </div>
-            <% end %>
-          </div>
-          <% end %>
-        </div>
-    </div>
-  </div>
-      <%= paginate @quests, theme: 'bootstrap-5' %>
-</div>
+<% if current_member %>
+  <%= render "member/homes/top_for_login" %>
+<% else %>
+  <%= render "member/homes/top_for_logout" %>
+<% end %>

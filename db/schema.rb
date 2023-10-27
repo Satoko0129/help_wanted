@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_20_112820) do
+ActiveRecord::Schema.define(version: 2023_10_26_114248) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2023_09_20_112820) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_guest", default: false, null: false
     t.string "email"
+    t.integer "admin_id"
+    t.index ["admin_id"], name: "index_members_on_admin_id"
     t.index ["nickname"], name: "index_members_on_nickname", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
@@ -110,4 +112,5 @@ ActiveRecord::Schema.define(version: 2023_09_20_112820) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "members", "admins"
 end
