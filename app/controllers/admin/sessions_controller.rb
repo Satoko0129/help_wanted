@@ -3,6 +3,12 @@
 class Admin::SessionsController < Devise::SessionsController
   layout 'admin_application'
   #before_action :configure_permitted_parameters, only: [:create]
+  def guest_sign_in
+    admin = Admin.guest
+    sign_in admin
+    redirect_to root_path, notice: 'ゲストアドミンとしてログインしました。'
+  end
+
   protected
   def after_sign_in_path_for(resource)
     admin_root_path

@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  devise_scope :admin do
+    post 'admin/guest_sign_in', to: 'admin/sessions#guest_sign_in'
+    delete 'admin_logout' => 'admin/sessions#destroy', as: :logout_admin_session
+  end
+
   namespace :admin do
     root to: 'homes#top'
     resources :quests, only: [:show, :edit, :create, :edit, :update, :destroy, :new]
@@ -14,7 +19,7 @@ Rails.application.routes.draw do
     patch 'admin/exchange_requests/:id' => 'update#exchange_request'
     resources :reviews, only: [:new, :create]
     get    '/relationships/invitation_code', to: "relationships#invitation_code"
-    resources :relationships,       only: [:new, :create] 
+    resources :relationships,       only: [:new, :create]
   end
 
   devise_for :members, skip: [:passwords], controllers: {
@@ -24,6 +29,7 @@ Rails.application.routes.draw do
   }
   devise_scope :member do
     post 'member/guest_sign_in', to: 'member/sessions#guest_sign_in'
+    delete 'member_logout' => 'member/sessions#destroy', as: :logout_member_session
   end
 
   scope module: 'member' do

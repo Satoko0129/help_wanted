@@ -24,6 +24,7 @@ class Member < ApplicationRecord
 
   def self.guest
     find_or_create_by!(is_guest: true) do |member|
+      member.admin_id = Admin.guest.id
       member.password = SecureRandom.urlsafe_base64
       member.nickname = 'ゲスト'
       member.birthday = '2023-01-01'

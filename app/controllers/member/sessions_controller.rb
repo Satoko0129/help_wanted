@@ -16,7 +16,7 @@ class Member::SessionsController < Devise::SessionsController
     sign_in member
     redirect_to root_path, notice: 'ゲストメンバーとしてログインしました。'
   end
-  
+
   def create
     birth_day = "#{params[:member]['birthday(1i)']}/#{params[:member]['birthday(2i)']}/#{params[:member]['birthday(3i)']}"
     member = Member.find_by(nickname: params[:member][:nickname], birthday: birth_day)
@@ -28,6 +28,8 @@ class Member::SessionsController < Devise::SessionsController
     end
   #   super
   end
+
+  #
 
   # DELETE /resource/sign_out
   # def destroy
